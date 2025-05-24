@@ -26,5 +26,6 @@ int main(){
     contadorRainha++;
   } while (contadorRainha < 8);
 
+  
   return 0;
 }
