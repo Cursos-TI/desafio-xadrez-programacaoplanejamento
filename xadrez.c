@@ -1,32 +1,89 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+void moverTorre(int casas) {
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    if (casas > 0) {
+        printf("Direita\n");
+        moverTorre(casas - 1);
+    }
+}
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+void moverRainha(int casas) {
+    
+    do
+    {
+        printf("Esquerda\n");
+        casas--;
+    } while (casas > 0);  
+}
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+void moverBispo(int movimento) {
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    while (movimento > 0){
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+        printf("Direita e Cima \n");
+        movimento --;
+       } 
+    }
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+void MoverCavalo(int movimentoCompleto) {
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    while (movimentoCompleto--)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            printf("Cima\n"); // Imprime "Cima" duas vezes
+        }
+            printf("Esquerda\n"); // Imprime "Esquerda" uma vez   
+    }
+}
+
+int main () {
+
+    int escolherPecas;
+
+    do {
+    printf("\n===== Vamos movimentar as peças do Xadrez =====\n");
+    printf("Menu:\n");
+    printf("1. Torre\n");
+    printf("2. Rainha\n");
+    printf("3. Bispo\n");
+    printf("4. Cavalo\n");
+    printf("5. Sair\n");
+    printf("Escolha uma opção: \n");
+
+    scanf("%d", &escolherPecas);
+
+    switch (escolherPecas)
+    {
+    case 1:
+        moverTorre(5);
+        break;
+
+    case 2:
+        moverRainha(8);
+        break;
+
+    case 3:
+        moverBispo(5);
+        break;
+
+    case 4:
+        MoverCavalo(1);
+        break;
+
+    case 5:
+        printf("Saindo...\n");       
+        break;    
+ 
+    default:
+
+    printf("Opção inválida!\n");
+        break;
+    }
+
+    } while (escolherPecas != 5);
+  
 
     return 0;
 }
